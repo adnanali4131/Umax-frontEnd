@@ -10,8 +10,6 @@ import { Containerfluid, Container, Logo, Header } from './login.styles'
 import { logIn } from '../../redux/actions/login.actions'
 import { terms } from '../../data/en-terms'
 
-// @todo: do not hard code. always use terms to get data
-
 const Login = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -86,7 +84,7 @@ const Login = () => {
                   rules={[
                     {
                       required: true,
-                      message: 'Please input your Password!',
+                      message: terms.login['password-error'],
                     },
                   ]}
                 >
@@ -106,12 +104,12 @@ const Login = () => {
                     htmlType="submit"
                     onClick={handlelogInClick}
                   >
-                    Sign In
+                    {terms.login.submit}
                   </Button>
                 </Form.Item>
 
                 <Form.Item>
-                  <a href="/pasword"> Forget your password</a>
+                  <a href="/pasword"> {terms.login['forgot-password']}</a>
                 </Form.Item>
               </Form>
             </Container>

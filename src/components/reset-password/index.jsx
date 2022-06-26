@@ -2,6 +2,7 @@ import React from 'react'
 import { Col, Row, Form, Input, Button } from 'antd'
 import { LockOutlined } from '@ant-design/icons'
 import LoginImg from '../../assets/login-logo.png'
+import { terms } from '../../data/en-terms'
 
 import './resetPassword.styles'
 import { Containerfluid, Container, Logo, Header } from './resetPassword.styles'
@@ -31,8 +32,8 @@ const ResetPassword = () => {
           <Containerfluid>
             <Container>
               <div>
-                <h1>Welcome!</h1>
-                <p>Please set your password to use this application.</p>
+                <h1>{terms.resetPassword.title}</h1>
+                <p>{terms.resetPassword.description}</p>
               </div>
 
               <Form
@@ -49,7 +50,7 @@ const ResetPassword = () => {
                   rules={[
                     {
                       required: true,
-                      message: 'Please input your Password!',
+                      message: terms.resetPassword['password-error'],
                     },
                   ]}
                 >
@@ -67,7 +68,7 @@ const ResetPassword = () => {
                   rules={[
                     {
                       required: true,
-                      message: 'Passwords must match!',
+                      message: terms.resetPassword['password-placeholder'],
                     },
                   ]}
                 >
@@ -80,7 +81,7 @@ const ResetPassword = () => {
 
                 <Form.Item>
                   <Button block type="primary" size="large" htmlType="submit">
-                    Submit
+                    {terms.resetPassword.submit}
                   </Button>
                 </Form.Item>
               </Form>

@@ -2,6 +2,7 @@ import React from 'react'
 import { Col, Row, Form, Input, Button } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
 import LoginImg from '../../assets/login-logo.png'
+import { terms } from '../../data/en-terms'
 
 import {
   Containerfluid,
@@ -11,9 +12,7 @@ import {
 } from './forgotPassword.styles'
 
 const ForgetPassword = () => {
-  const onFinish = (values) => {
-    console.log('Received values of form: ', values)
-  }
+  const onFinish = (values) => {}
   return (
     <div>
       <Header>
@@ -35,11 +34,8 @@ const ForgetPassword = () => {
           <Containerfluid>
             <Container>
               <div>
-                <h1>Forgot your password?</h1>
-                <p>
-                  Enter your email and you will receive link where you can reset
-                  the password
-                </p>
+                <h1>{terms.fotgetPassword.title}</h1>
+                <p>{terms.fotgetPassword.description}</p>
               </div>
 
               <Form
@@ -57,7 +53,7 @@ const ForgetPassword = () => {
                   rules={[
                     {
                       required: true,
-                      message: 'Please input your Email!',
+                      message: terms.fotgetPassword['email-error'],
                     },
                   ]}
                 >
@@ -66,7 +62,7 @@ const ForgetPassword = () => {
 
                 <Form.Item>
                   <Button block type="primary" size="large" htmlType="submit">
-                    Reset
+                    {terms.fotgetPassword.submit}
                   </Button>
                 </Form.Item>
               </Form>

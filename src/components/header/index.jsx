@@ -99,7 +99,7 @@ const content = (
           size="large"
           style={{ width: '100%' }}
         >
-          <Option value="one">1</Option>546edzeeee4
+          <Option value="one">1</Option>
           <Option value="two">2</Option>
         </Select>
       </Form.Item>

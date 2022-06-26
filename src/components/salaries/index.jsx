@@ -11,13 +11,7 @@ import {
 } from './salaries.styles'
 
 const rowSelection = {
-  onChange: (selectedRowKeys, selectedRows) => {
-    console.log(
-      `selectedRowKeys: ${selectedRowKeys}`,
-      'selectedRows: ',
-      selectedRows,
-    )
-  },
+  onChange: (selectedRowKeys, selectedRows) => {},
   getCheckboxProps: (record) => ({
     disabled: record.name === 'Disabled User',
     name: record.name,

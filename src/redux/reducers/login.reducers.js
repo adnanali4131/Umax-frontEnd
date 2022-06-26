@@ -1,12 +1,13 @@
 import { LOG_IN } from '../constants/constants'
 
-const initialState = {
-  error: '',
-  loading: false,
-  user: null,
-}
-
-export const logInReducer = (state = initialState, action) => {
+export const logInReducer = (
+  state = {
+    error: '',
+    loading: false,
+    user: null,
+  },
+  action,
+) => {
   switch (action.type) {
     case LOG_IN.REQUEST:
       return {
