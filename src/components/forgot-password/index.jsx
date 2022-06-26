@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Row, Form, Input, Button } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
-import LoginImg from '../../assets/Group 37 (1).png'
+import LoginImg from '../../assets/login-logo.png'
 
 import {
   Containerfluid,

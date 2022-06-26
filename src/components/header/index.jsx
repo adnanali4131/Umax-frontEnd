@@ -1,7 +1,10 @@
 import { React, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { Link } from 'react-router-dom'
-import Titleiamge from '../../assets/Timer.png'
+import Titleiamge from '../../assets/timer-logo.png'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { logOut } from '../../redux/actions/logout.actions'
 
 import {
   Avatar,
@@ -39,7 +42,7 @@ import {
   FormWrapper,
   Timer,
 } from './header.styles'
-import { theme } from '../utility/theme'
+import { theme } from '../../utils/theme'
 import moment from 'moment'
 
 const format = 'HH:mm'
@@ -47,12 +50,8 @@ const { Option } = Select
 const { TextArea } = Input
 
 // Timer
-const onChange = (date, dateString) => {
-  console.log(date, dateString)
-}
-const handleChange = (value) => {
-  console.log(`selected ${value}`)
-}
+const onChange = (date, dateString) => {}
+const handleChange = (value) => {}
 
 const content = (
   <FormWrapper>
@@ -133,14 +132,6 @@ const content = (
     </Form>
   </FormWrapper>
 )
-// signOut
-const menuItems = [
-  {
-    key: '1',
-    label: 'Sign Out',
-  },
-]
-const loginDropdown = <Menu items={menuItems} />
 
 const languages = [
   {
@@ -157,7 +148,7 @@ const languageDropdown = <Menu items={languages} />
 const menuLinks = [
   {
     name: 'Statistics',
-    url: '/statistics',
+    url: '/',
     icon: <DashboardOutlined />,
   },
   {
@@ -178,6 +169,21 @@ const menuLinks = [
 ]
 
 const HeaderComponent = () => {
+  // redux
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const handlelogOut = () => {
+    dispatch(logOut(navigate))
+  }
+  // logOut
+  const menuItems = [
+    {
+      key: '1',
+      label: 'Sign Out',
+    },
+  ]
+  const loginDropdown = <Menu items={menuItems} onClick={handlelogOut} />
+
   const [visible, setVisible] = useState(false)
 
   const showDrawer = () => {
@@ -244,7 +250,11 @@ const HeaderComponent = () => {
             </Dropdown>
 
             <Container>
-              <Dropdown overlay={loginDropdown} trigger={['click']}>
+              <Dropdown
+                overlay={loginDropdown}
+                trigger={['hover']}
+                onClick={handlelogOut}
+              >
                 {!isTabletOrMobile ? (
                   <span>
                     <Avatar>AA</Avatar>

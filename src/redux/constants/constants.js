@@ -1,0 +1,8 @@
+export const REQUEST_STATUS = {
+  FAILURE: 'FAILURE',
+  REQUEST: 'REQUEST',
+  SUCCESS: 'SUCCESS',
+}
+
+export const LOG_OUT = REQUEST_STATUS
+export const LOG_IN = REQUEST_STATUS
