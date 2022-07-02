@@ -1,4 +1,4 @@
-import { LOG_OUT } from '../constants/constants'
+import { logOutConstants } from '../constants/constants'
 
 export const logOutReducer = (
   state = {
@@ -9,7 +9,7 @@ export const logOutReducer = (
   action,
 ) => {
   switch (action.type) {
-    case LOG_OUT.SUCCESS:
+    case logOutConstants.LOG_OUT_SUCCESS:
       return {
         ...state,
         token: '',

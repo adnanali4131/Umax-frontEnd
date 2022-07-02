@@ -24,4 +24,22 @@ export const terms = {
     submit: 'Submit',
     title: 'Welcome!',
   },
+
+  settings: {
+    project: {
+      title: 'Projects',
+      button: 'Add new',
+    },
+    employees: {
+      title: 'Employees',
+      button: 'Add new',
+    },
+    category: {
+      title: 'Category',
+      button: 'Add new',
+    },
+    types: {
+      title: 'Types',
+    },
+  },
 }

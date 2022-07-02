@@ -1,4 +1,4 @@
-import { LOG_IN } from '../constants/constants'
+import { logInConstants } from '../constants/constants'
 
 export const logInReducer = (
   state = {
@@ -9,19 +9,19 @@ export const logInReducer = (
   action,
 ) => {
   switch (action.type) {
-    case LOG_IN.REQUEST:
+    case logInConstants.LOG_IN_REQUEST:
       return {
         ...state,
         loading: true,
       }
-    case LOG_IN.FAILURE:
+    case logInConstants.LOG_IN_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.payload,
       }
 
-    case LOG_IN.SUCCESS:
+    case logInConstants.LOG_IN_SUCCESS:
       return {
         ...state,
         loading: false,

@@ -1,8 +1,8 @@
-import { LOG_OUT } from '../constants/constants'
+import { logOutConstants } from '../constants/constants'
 
 export const logOutRequest = function () {
   return {
-    type: LOG_OUT.REQUEST,
+    type: logOutConstants.LOG_OUT_REQUEST,
   }
 }
 
