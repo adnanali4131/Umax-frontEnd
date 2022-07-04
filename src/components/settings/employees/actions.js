@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Moment from 'react-moment'
 import { Button, Badge } from 'antd'
 import { EditOutlined } from '@ant-design/icons'
 
@@ -9,7 +10,7 @@ export const EmployeesActions = () => {
   const columns = [
     {
       title: 'Name',
-      dataIndex: 'Name',
+      dataIndex: 'firstName',
       key: 'key',
       width: '25%',
     },
@@ -28,21 +29,24 @@ export const EmployeesActions = () => {
     {
       responsive: ['xl'],
       title: 'Email',
-      dataIndex: 'Email',
+      dataIndex: 'email',
       key: 'key',
       width: '20%',
     },
     {
       responsive: ['xl'],
       title: 'Date Of Birth',
-      dataIndex: 'DOB',
+      dataIndex: 'dob',
       key: 'key',
       width: '15%',
+      render: () => {
+        return <Moment format={'YYYY-MM-DD'} />
+      },
     },
     {
       responsive: ['xl'],
       title: 'Role',
-      dataIndex: 'Role',
+      dataIndex: 'role',
       key: 'key',
       width: '10%',
     },

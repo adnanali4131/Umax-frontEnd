@@ -8,11 +8,11 @@ export const addCategory = (payload) => {
     http
       .post('/category', payload)
       .then(({ data }) => {
-        message.success('Category is Added')
         dispatch({
           type: categoryConstants.ADD_CATEGORY_SUCCESS,
           payload: data.category,
         })
+        message.success('Category is Added')
       })
       .catch((error) => {
         message.error('Unable to add category')

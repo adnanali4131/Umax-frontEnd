@@ -44,9 +44,7 @@ const CategoryModal = ({ modalOpen, modalCancel }) => {
               style={{ width: '40%', marginRight: 0 }}
             >
               <Select
-                initialvalues={{
-                  value: 'Active',
-                }}
+                placeholder="Status"
                 size={'large'}
                 onChange={(value) => setStatus(value)}
               >
@@ -60,8 +58,8 @@ const CategoryModal = ({ modalOpen, modalCancel }) => {
               style={{ width: '40%', marginRight: 0 }}
             >
               <Select
-                initialvalues="Select Type"
                 size={'large'}
+                placeholder="Type"
                 onChange={(value) => setType(value)}
               >
                 <Option value="Project">Project</Option>

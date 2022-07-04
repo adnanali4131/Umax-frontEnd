@@ -1,5 +1,4 @@
-//Add Modal here
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addProject } from '../../../redux/actions/project.actions'
 import { Modal, Form, Input, Select } from 'antd'
@@ -17,10 +16,13 @@ const ProjectModal = ({ modalOpen, modalCancel }) => {
       <Modal
         title="Add Project"
         visible={modalOpen}
-        onOk={(e) => {
-          e.preventDefault()
-          dispatch(addProject({ name, status }))
-        }}
+        onOk={
+          ((e) => {
+            e.preventDefault()
+            dispatch(addProject({ name, status }))
+          },
+          modalCancel)
+        }
         onCancel={modalCancel}
         okText="Save"
         cancelText="Cancel"
@@ -44,9 +46,7 @@ const ProjectModal = ({ modalOpen, modalCancel }) => {
               style={{ width: '40%', marginRight: 0 }}
             >
               <Select
-                initialvalues={{
-                  value: 'Active',
-                }}
+                placeholder="Status"
                 size={'large'}
                 onChange={(value) => setStatus(value)}
               >
@@ -60,7 +60,11 @@ const ProjectModal = ({ modalOpen, modalCancel }) => {
               wrapperCol={{ sm: 24 }}
               style={{ width: '40%', marginRight: 0 }}
             >
-              <Select initialvalues="jitsi-demo " size={'large'}>
+              <Select
+                initialvalues="jitsi-demo "
+                size={'large'}
+                placeholder="Category"
+              >
                 <Option value="jitsi-demo">jitsi-demo</Option>
               </Select>
             </Form.Item>

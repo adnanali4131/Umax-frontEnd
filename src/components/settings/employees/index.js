@@ -1,4 +1,5 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Table, Button } from 'antd'
 import { terms } from '../../../data/en-terms'
 
@@ -6,9 +7,17 @@ import { PlusOutlined } from '@ant-design/icons'
 import { EmployeesActions } from './actions'
 import EmployeesModal from './modal'
 import { Discription } from './employees.styles'
+import { useEffect } from 'react'
+import { getEmployees } from '../../../redux/actions/employees.actions'
 
 const Employees = () => {
   const actions = EmployeesActions()
+  const dispatch = useDispatch()
+  const employees = useSelector((state) => state?.employees?.users)
+
+  useEffect(() => {
+    dispatch(getEmployees())
+  }, [dispatch])
 
   return (
     <div>
@@ -23,7 +32,8 @@ const Employees = () => {
         </Button>
       </Discription>
       <Table
-        //   dataSource={employeesData}
+        rowKey="_id"
+        dataSource={employees}
         columns={actions.columns}
         pagination={false}
       />

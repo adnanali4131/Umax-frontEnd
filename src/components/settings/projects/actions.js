@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { useState } from 'react'
 
 import { Button, Badge, Tag } from 'antd'
 import { EditOutlined } from '@ant-design/icons'
